@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [
     react(),
   ],
-  base: './',
+  base: '/PortFolio/',
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "src"),
