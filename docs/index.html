@@ -1,17 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fira+Code:wght@300..700&family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&family=Oxanium:wght@200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=Space+Grotesk:wght@300..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="/PortFolio/assets/index-BVrSDXt9.js"></script>
-    <link rel="stylesheet" crossorigin href="/PortFolio/assets/index-DfZe3_LN.css">
-  </head>
-  <body>
-    <div id="root"></div>
-    <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
-    <script type="text/javascript" src="https://replit.com/public/js/replit-dev-banner.js"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MONU - Cybersecurity Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --background: hsl(240, 10%, 4%);
+            --foreground: hsl(0, 0%, 98%);
+            --card: hsl(240, 10%, 6%);
+            --card-foreground: hsl(0, 0%, 95%);
+            --primary: hsl(142, 76%, 50%);
+            --secondary: hsl(195, 100%, 50%);
+            --accent: hsl(215, 100%, 50%);
+            --muted: hsl(240, 5%, 12%);
+            --muted-foreground: hsl(240, 5%, 65%);
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--foreground);
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+
+        .cyber-grid {
+            background: #000000;
+            position: relative;
+        }
+
+        .cyber-grid::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 20%, rgba(34, 197, 94, 0.08) 0%, transparent 150px),
+                radial-gradient(circle at 70% 80%, rgba(59, 130, 246, 0.06) 0%, transparent 150px);
+        }
+
+        .terminal-glow {
+            box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+        }
+
+        .neon-border {
+            border: 1px solid hsl(var(--primary));
+            box-shadow: 0 0 10px rgba(34, 197, 94, 0.3);
+        }
+
+        .glitch-text {
+            animation: glitch 1s linear infinite;
+        }
+
+        @keyframes glitch {
+            0%, 14%, 16%, 18%, 20%, 100% { 
+                opacity: 1; 
+            }
+            15%, 17%, 19% { 
+                opacity: 0.8; 
+                transform: translateX(2px); 
+            }
+        }
+
+        .typing-animation {
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 3s steps(40, end) forwards;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen bg-background text-foreground font-sans overflow-x-hidden">
+        <!-- Hero Section -->
+        <section id="home" class="min-h-screen flex items-center justify-center cyber-grid relative">
+            <div class="absolute inset-0 bg-gradient-to-br from-background/90 to-background/70"></div>
+            <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+                <div class="mb-8">
+                    <img 
+                        src="https://avatars.githubusercontent.com/u/165674949?v=4" 
+                        alt="MONU Profile" 
+                        class="w-40 h-40 rounded-full mx-auto border-4 border-primary terminal-glow"
+                    />
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                    <span class="text-primary font-mono glitch-text">MONU</span>
+                    <span class="text-2xl md:text-4xl text-muted-foreground ml-4">(Mk-dugri)</span>
+                    <br />
+                    <span class="typing-animation text-2xl md:text-4xl">Cybersecurity Researcher</span>
+                </h1>
+                
+                <p class="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+                    Passionate about <span class="text-secondary">ethical hacking</span>, 
+                    <span class="text-accent"> digital forensics</span>, and securing the digital world 
+                    one vulnerability at a time.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a 
+                        href="https://github.com/Mk-dugri?tab=repositories" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        class="bg-primary text-primary-foreground px-8 py-3 rounded-lg hover:bg-primary/90 transition-all duration-300 neon-border font-mono"
+                    >
+                        <i class="fas fa-code mr-2"></i>View Projects
+                    </a>
+                    <a 
+                        href="https://github.com/Mk-dugri" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        class="border border-primary text-primary px-8 py-3 rounded-lg hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                    >
+                        <i class="fab fa-github mr-2"></i>GitHub Profile
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-4xl md:text-5xl font-bold mb-8">
+                            About <span class="text-primary">Me</span>
+                        </h2>
+                        <div class="space-y-6 text-lg text-muted-foreground">
+                            <p>
+                                I'm <span class="text-primary font-semibold">MONU (Mk-dugri)</span>, a dedicated cybersecurity student 
+                                with an insatiable passion for ethical hacking and digital forensics. My journey in cybersecurity 
+                                extends far beyond the classroom, diving deep into real-world security challenges.
+                            </p>
+                            <p>
+                                I specialize in <span class="text-secondary">vulnerability research</span>, 
+                                <span class="text-accent"> penetration testing</span>, and developing innovative security tools. 
+                                My goal is to contribute to a safer digital ecosystem through responsible disclosure and 
+                                educational content.
+                            </p>
+                            <p>
+                                When I'm not hunting for vulnerabilities, you can find me creating educational content on my 
+                                <span class="text-primary"> YouTube channel</span> or contributing to open-source security projects.
+                            </p>
+                        </div>
+                        
+                        <div class="mt-8 grid grid-cols-2 gap-4">
+                            <div class="bg-card rounded-lg p-4 text-center neon-border">
+                                <div class="text-2xl font-bold text-primary">5+</div>
+                                <div class="text-sm text-muted-foreground">Projects</div>
+                            </div>
+                            <div class="bg-card rounded-lg p-4 text-center neon-border">
+                                <div class="text-2xl font-bold text-secondary">∞</div>
+                                <div class="text-sm text-muted-foreground">Learning</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-card/50 rounded-xl p-8 border border-primary/30 terminal-glow">
+                            <div class="text-center mb-6">
+                                <i class="fas fa-user-secret text-6xl text-primary mb-4"></i>
+                                <h3 class="text-2xl font-bold">Digital Identity</h3>
+                            </div>
+                            
+                            <div class="space-y-4 font-mono text-sm">
+                                <div class="flex justify-between">
+                                    <span class="text-muted-foreground">Status:</span>
+                                    <span class="text-primary">Active Researcher</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-muted-foreground">Specialization:</span>
+                                    <span class="text-secondary">Ethical Hacking</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-muted-foreground">Focus Area:</span>
+                                    <span class="text-accent">Digital Forensics</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-muted-foreground">Experience:</span>
+                                    <span class="text-primary">Student + Research</span>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-6 p-3 bg-background/60 rounded border border-primary/20">
+                                <p class="text-xs text-center text-muted-foreground">
+                                    "Security is not a product, but a process of continuous learning and adaptation"
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-card rounded-lg p-6 neon-border">
+                            <h3 class="text-xl font-bold mb-4 text-primary">Current Focus</h3>
+                            <ul class="space-y-2 text-muted-foreground">
+                                <li class="flex items-center">
+                                    <i class="fas fa-bug text-primary mr-3"></i>Advanced Vulnerability Research
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-fingerprint text-secondary mr-3"></i>Digital Forensics Techniques
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-network-wired text-accent mr-3"></i>Network Security Analysis
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-code text-primary mr-3"></i>Security Tool Development
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
 </html>
